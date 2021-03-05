@@ -46,6 +46,23 @@ const
   EID_MAX_DOCUMENT_TYPE_LEN = 2;
   // Maximum length of the special status field
   EID_MAX_SPECIAL_STATUS_LEN = 2;
+  
+  EID_MAX_DUPLICATE_LEN	=	2;
+  // Special organization
+   EID_MAX_SPECIALORGANIZATION_LEN = 1;
+  //Member of family
+   EID_MAX_MEMBEROFFAMILY_LEN	= 1;
+  //Date and country of protection
+  EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN = 13;
+   //The type of the workpermit
+  EID_MAX_WORKPERMITTYPE_LEN = 1;
+  //VAT1
+  EID_MAX_VAT1_LEN = 13;
+  //VAT2
+  EID_MAX_VAT2_LEN = 13;
+  EID_MAX_REGIONALFILENUMBER_LEN = 18;
+  EID_MAX_BREXITMENTION1_LEN = 1;
+  EID_MAX_BREXITMENTION2_LEN = 1;
 
   // Maximum length of the street name field
   EID_MAX_STREET_LEN = 80;
