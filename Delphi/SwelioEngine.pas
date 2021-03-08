@@ -133,6 +133,18 @@ type
       YellowCane : BOOL;
       // Extended minority
       ExtendedMinority : BOOL;
+
+      Duplicate : array[0..EID_MAX_DUPLICATE_LEN] of AnsiChar;
+	    SpecialOrganization : array[0..EID_MAX_SPECIALORGANIZATION_LEN] of AnsiChar;
+	    MemberOfFamily : BOOL;
+	    DateAndCountryOfProtection : array[0..EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN] of AnsiChar;
+	    WorkPermitType : array[0..EID_MAX_WORKPERMITTYPE_LEN] of AnsiChar;
+	    Vat1 : array[0..EID_MAX_VAT1_LEN] of AnsiChar;
+	    Vat2 : array[0..EID_MAX_VAT2_LEN] of AnsiChar;
+	    RegionalFileNumber: array[0..EID_MAX_REGIONALFILENUMBER_LEN] of AnsiChar;
+	    BrexitMention1 : array[0..EID_MAX_BREXITMENTION1_LEN] of AnsiChar;
+	    BrexitMention2 : array[0..EID_MAX_BREXITMENTION2_LEN] of AnsiChar;
+
     end;
 
   // Identity information stored on EID card
@@ -174,6 +186,18 @@ type
       YellowCane : BOOL;
       // Extended minority
       ExtendedMinority : BOOL;
+
+      Duplicate : array[0..EID_MAX_DUPLICATE_LEN] of WideChar;
+	    SpecialOrganization : array[0..EID_MAX_SPECIALORGANIZATION_LEN] of WideChar;
+	    MemberOfFamily : BOOL;
+	    DateAndCountryOfProtection : array[0..EID_MAX_DATEANDCOUNTRYOFPROTECTION_LEN] of WideChar;
+	    WorkPermitType : array[0..EID_MAX_WORKPERMITTYPE_LEN] of WideChar;
+	    Vat1 : array[0..EID_MAX_VAT1_LEN] of WideChar;
+	    Vat2 : array[0..EID_MAX_VAT2_LEN] of WideChar;
+	    RegionalFileNumber: array[0..EID_MAX_REGIONALFILENUMBER_LEN] of WideChar;
+	    BrexitMention1 : array[0..EID_MAX_BREXITMENTION1_LEN] of WideChar;
+	    BrexitMention2 : array[0..EID_MAX_BREXITMENTION2_LEN] of WideChar;
+
     end;
 
   // Identity information stored on EID card

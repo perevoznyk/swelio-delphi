@@ -66,6 +66,16 @@ type
       YellowCane : boolean;
       // Extended minority
       ExtendedMinority : boolean;
+      Duplicate : string;
+      SpecialOrganization : string;
+      MemberOfFamily : boolean;
+      DateAndCountryOfProtection : string;
+      WorkPermitType : string;
+      VAT1 : string;
+      VAT2 : string;
+      RegionalFileNumber : string;
+      BrexitMention1 : string;
+      BrexitMention2 : string;
     end;
 
   // EID address information, stored on the card

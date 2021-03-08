@@ -168,6 +168,16 @@ begin
       Result.WhiteCane := PersonTag.WhiteCane;
       Result.YellowCane := PersonTag.YellowCane;
       Result.ExtendedMinority := PersonTag.ExtendedMinority;
+      Result.Duplicate := PersonTag.Duplicate;
+      Result.SpecialOrganization := PersonTag.SpecialOrganization;
+      Result.MemberOfFamily := PersonTag.MemberOfFamily;
+      Result.DateAndCountryOfProtection := PersonTag.DateAndCountryOfProtection;
+      Result.WorkPermitType := PersonTag.WorkPermitType;
+      Result.VAT1 := PersonTag.Vat1;
+      Result.VAT2 := PersonTag.Vat2;
+      Result.RegionalFileNumber := PersonTag.RegionalFileNumber;
+      Result.BrexitMention1 := PersonTag.BrexitMention1;
+      Result.BrexitMention2 := PersonTag.BrexitMention2;
      end;
 end;
 
