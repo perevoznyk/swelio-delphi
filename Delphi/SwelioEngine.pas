@@ -93,6 +93,12 @@ type
   //The readers list changed
 	ewtReadersChange);
 
+  TErrorInformation =
+  record
+    Code : integer;
+    Description : array[0..254] of WideChar;
+  end;
+  PErrorInformation = ^TErrorInformation;
 
   // Identity information stored on EID card
   tagEidIdentityA =
@@ -3907,6 +3913,8 @@ function GetCardSerialNumber(readerNumber : integer; serialNumber :PBYTE; var se
 //		Returns true if the operation is successful, otherwise returns false
 function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
 
+function CardSignCMSEx(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall;
+
 // Summary:
 //		Sign data with eID card according to CADES-T standard
 // Description:
@@ -3920,6 +3928,8 @@ function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; si
 // Return value:
 //		Returns true if the operation is successful, otherwise returns false
 function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
+function CardSignCadesTEx(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall;
 
 // Summary:
 //		Sign data with certificate according to CMS standard
@@ -3936,6 +3946,8 @@ function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer;
 //		Returns true if the operation is successful, otherwise returns false
 function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
 
+function CertSignCMSEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall;
+
 // Summary:
 //		Sign data with certificate according to CADES-T standard
 // Description:
@@ -3950,6 +3962,8 @@ function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE
 // Return value:
 //		Returns true if the operation is successful, otherwise returns false
 function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
+
+function CertSignCadesTEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall;
 
 function InitializeContainer() : pointer; stdcall;
 
@@ -3975,10 +3989,16 @@ const
 {$ENDIF}
 
 function GetCardSerialNumber(readerNumber : integer; serialNumber :PBYTE; var serialNumberSize : DWORD) : BOOL; stdcall; external SwelioLib;
+
 function CardSignCMS(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 function CardSignCadesT(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
 function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall; external SwelioLib;
+
+function CardSignCMSEx(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall; external SwelioLib;
+function CardSignCadesTEx(readerNumber : integer; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall; external SwelioLib;
+function CertSignCMSEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall; external SwelioLib;
+function CertSignCadesTEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall; external SwelioLib;
 
 function InitializeContainer() : pointer; stdcall; external SwelioLib;
 
