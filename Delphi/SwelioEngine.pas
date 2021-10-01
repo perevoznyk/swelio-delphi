@@ -4015,36 +4015,36 @@ function ContainerPickCertificate(Container: pointer) : BOOL; stdcall; external 
 function ContainerEidCertificate(Container: pointer; readerNumber : integer) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGW';
+procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGW' delayed;
 {$ELSE}
-procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGA';
+procedure GeneratePNG (FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GeneratePNGA' delayed;
 {$ENDIF}
 
 procedure GeneratePNGW(FileName: PWideChar; Text : PWideChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib delayed;
 procedure GeneratePNGA(FileName: PAnsiChar; Text : PAnsiChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function GetHBitmap(Text : PChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib name 'GetHBitmapW';
+function GetHBitmap(Text : PChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib name 'GetHBitmapW' delayed;
 {$ELSE}
-function GetHBitmap(Text : PChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib name 'GetHBitmapA';
+function GetHBitmap(Text : PChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib name 'GetHBitmapA' delayed;
 {$ENDIF}
 
 function GetHBitmapW(Text : PWideChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib delayed;
 function GetHBitmapA(Text : PAnsiChar; Margin : integer; Size : integer; Level : integer) : HBITMAP; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure GenerateBMP(FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GenerateBMPW';
+procedure GenerateBMP(FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GenerateBMPW' delayed;
 {$ELSE}
-procedure GenerateBMP(FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GenerateBMPA';
+procedure GenerateBMP(FileName: PChar; Text : PChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib name 'GenerateBMPA' delayed;
 {$ENDIF}
 
 procedure GenerateBMPW(FileName: PWideChar; Text : PWideChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib delayed;
 procedure GenerateBMPA(FileName: PAnsiChar; Text : PAnsiChar; Margin : integer; Size : integer; Level : integer); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall; external SwelioLib name 'GetPNGW';
+procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall; external SwelioLib name 'GetPNGW' delayed;
 {$ELSE}
-procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall; external SwelioLib name 'GetPNGA';
+procedure GetPNG(Text : PChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall; external SwelioLib name 'GetPNGA' delayed;
 {$ENDIF}
 
 procedure GetPNGW(Text : PWideChar; Margin : integer; Size : integer; Level : integer; var BufSize : integer; out ppvBits : PByte); stdcall; external SwelioLib delayed;
@@ -4052,36 +4052,36 @@ procedure GetPNGA(Text : PAnsiChar; Margin : integer; Size : integer; Level : in
 
 procedure DestroyImageBuffer(Buffer : PByte); stdcall; external SwelioLib delayed;
 
-procedure SetMWCompatibility(); stdcall; external SwelioLib name 'SetMWCompatibility';
-function  StartEngine() : BOOL; stdcall; external SwelioLib name 'StartEngine';
-procedure StopEngine(); stdcall; external SwelioLib name 'StopEngine';
+procedure SetMWCompatibility(); stdcall; external SwelioLib name 'SetMWCompatibility' delayed;
+function  StartEngine() : BOOL; stdcall; external SwelioLib name 'StartEngine' delayed;
+procedure StopEngine(); stdcall; external SwelioLib name 'StopEngine' delayed;
 function  IsEngineActive() : BOOL; stdcall; external SwelioLib delayed;
-function  GetReadersCount() : integer; stdcall; external SwelioLib name 'GetReadersCount';
-function  SelectReader(ReaderNumber : integer) : BOOL; stdcall; external SwelioLib name 'SelectReader';
-function  GetSelectedReaderIndex() : integer; stdcall; external SwelioLib name 'GetSelectedReaderIndex';
+function  GetReadersCount() : integer; stdcall; external SwelioLib name 'GetReadersCount' delayed;
+function  SelectReader(ReaderNumber : integer) : BOOL; stdcall; external SwelioLib name 'SelectReader' delayed;
+function  GetSelectedReaderIndex() : integer; stdcall; external SwelioLib name 'GetSelectedReaderIndex' delayed;
 
 {$IFDEF UNICODE}
-function  SelectReaderByName(ReaderName : PChar) : BOOL; stdcall; external SwelioLib name 'SelectReaderByNameW';
+function  SelectReaderByName(ReaderName : PChar) : BOOL; stdcall; external SwelioLib name 'SelectReaderByNameW' delayed;
 {$ELSE}
-function  SelectReaderByName(ReaderName : PChar) : BOOL; stdcall; external SwelioLib name 'SelectReaderByNameA';
+function  SelectReaderByName(ReaderName : PChar) : BOOL; stdcall; external SwelioLib name 'SelectReaderByNameA' delayed;
 {$ENDIF}
 
 function  SelectReaderByNameW(readerName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SelectReaderByNameA(ReaderName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GetReaderNameLen(ReaderNumber : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameLenW';
+function  GetReaderNameLen(ReaderNumber : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameLenW' delayed;
 {$ELSE}
-function  GetReaderNameLen(ReaderNumber : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameLenA';
+function  GetReaderNameLen(ReaderNumber : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameLenA' delayed;
 {$ENDIF}
 
 function  GetReaderNameLenW(ReaderNumber : integer) : integer; stdcall; external SwelioLib delayed;
 function  GetReaderNameLenA(ReaderNumber : integer) : integer; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GetReaderName(ReaderNumber : integer; StrDest : PChar; Count : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameW';
+function  GetReaderName(ReaderNumber : integer; StrDest : PChar; Count : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameW' delayed;
 {$ELSE}
-function  GetReaderName(ReaderNumber : integer; StrDest : PChar; Count : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameA';
+function  GetReaderName(ReaderNumber : integer; StrDest : PChar; Count : integer) : integer; stdcall; external SwelioLib name 'GetReaderNameA' delayed;
 {$ENDIF}
 
 function  GetReaderNameW(ReaderNumber : integer; StrDest : PWideChar; Count : integer) : integer; stdcall; external SwelioLib delayed;
@@ -4094,9 +4094,9 @@ function  IsCardPresent() : BOOL; stdcall; external SwelioLib delayed;
 function  IsCardPresentEx(ReaderNumber : integer) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GetReaderIndex(ReaderName : PChar) : integer; stdcall; external SwelioLib name 'GetReaderIndexW';
+function  GetReaderIndex(ReaderName : PChar) : integer; stdcall; external SwelioLib name 'GetReaderIndexW' delayed;
 {$ELSE}
-function  GetReaderIndex(ReaderName : PChar) : integer; stdcall; external SwelioLib name 'GetReaderIndexA';
+function  GetReaderIndex(ReaderName : PChar) : integer; stdcall; external SwelioLib name 'GetReaderIndexA' delayed;
 {$ENDIF}
 
 function  GetReaderIndexW(ReaderName : PWideChar) : integer; stdcall; external SwelioLib delayed;
@@ -4115,36 +4115,36 @@ function  IsEIDCardEx(ReaderNumber : integer) : BOOL; stdcall; external SwelioLi
 function  IsSISCardEx(ReaderNumber : integer) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePhotoAsJpeg(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegW';
+function  SavePhotoAsJpeg(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegW' delayed;
 {$ELSE}
-function  SavePhotoAsJpeg(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegA';
+function  SavePhotoAsJpeg(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegA' delayed;
 {$ENDIF}
 
 function  SavePhotoAsJpegW(FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SavePhotoAsJpegA(FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePhotoAsJpegEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegExW';
+function  SavePhotoAsJpegEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegExW' delayed;
 {$ELSE}
-function  SavePhotoAsJpegEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegExA';
+function  SavePhotoAsJpegEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsJpegExA' delayed;
 {$ENDIF}
 
 function  SavePhotoAsJpegExW(ReaderNumber : integer; FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SavePhotoAsJpegExA(ReaderNumber : integer; FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePhotoAsBitmap(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapW';
+function  SavePhotoAsBitmap(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapW' delayed;
 {$ELSE}
-function  SavePhotoAsBitmap(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapA';
+function  SavePhotoAsBitmap(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapA' delayed;
 {$ENDIF}
 
 function  SavePhotoAsBitmapW(FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SavePhotoAsBitmapA(FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePhotoAsBitmapEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapExW';
+function  SavePhotoAsBitmapEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapExW' delayed;
 {$ELSE}
-function  SavePhotoAsBitmapEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapExA';
+function  SavePhotoAsBitmapEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePhotoAsBitmapExA' delayed;
 {$ENDIF}
 
 function  SavePhotoAsBitmapExW(ReaderNumber : integer; FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
@@ -4158,107 +4158,107 @@ function  EncodePhoto(Photo : PeidPicture;  Buffer : PBYTE;  BufferSize : intege
 function  GetEncodedPhotoSize(photo : PeidPicture) : integer; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure LoadPhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'LoadPhotoW';
+procedure LoadPhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'LoadPhotoW' delayed;
 {$ELSE}
-procedure LoadPhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'LoadPhotoA';
+procedure LoadPhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'LoadPhotoA' delayed;
 {$ENDIF}
 
 procedure LoadPhotoW(Photo : PeidPicture; FileName : PWideChar); stdcall; external SwelioLib delayed;
 procedure LoadPhotoA(Photo : PeidPicture; FileName : PAnsiChar); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure SavePhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'SavePhotoW';
+procedure SavePhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'SavePhotoW' delayed;
 {$ELSE}
-procedure SavePhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'SavePhotoA';
+procedure SavePhoto(Photo : PeidPicture; FileName : PChar); stdcall; external SwelioLib name 'SavePhotoA' delayed;
 {$ENDIF}
 
 procedure SavePhotoW(Photo : PeidPicture; FileName : PWideChar); stdcall; external SwelioLib delayed;
 procedure SavePhotoA(Photo : PeidPicture; FileName : PAnsiChar); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadIdentity(identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityW';
+function  ReadIdentity(identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityW' delayed;
 {$ELSE}
-function  ReadIdentity(identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityA';
+function  ReadIdentity(identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityA' delayed;
 {$ENDIF}
 
 function  ReadIdentityW(identity : PEidIdentityW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadIdentityA(identity : PEidIdentityA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadAddress(address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressW';
+function  ReadAddress(address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressW' delayed;
 {$ELSE}
-function  ReadAddress(address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressA';
+function  ReadAddress(address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressA' delayed;
 {$ENDIF}
 
 function  ReadAddressW(address : PEidAddressW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadAddressA(address : PEidAddressA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadIdentityEx(ReaderNumber : integer; identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityExW';
+function  ReadIdentityEx(ReaderNumber : integer; identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityExW' delayed;
 {$ELSE}
-function  ReadIdentityEx(ReaderNumber : integer; identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityExA';
+function  ReadIdentityEx(ReaderNumber : integer; identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'ReadIdentityExA' delayed;
 {$ENDIF}
 
 function  ReadIdentityExW(ReaderNumber : integer; identity : PEidIdentityW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadIdentityExA(ReaderNumber : integer; identity : PEidIdentityA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadAddressEx(ReaderNumber : integer; address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressExW';
+function  ReadAddressEx(ReaderNumber : integer; address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressExW' delayed;
 {$ELSE}
-function  ReadAddressEx(ReaderNumber : integer; address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressExA';
+function  ReadAddressEx(ReaderNumber : integer; address : PEidAddress) : BOOL; stdcall; external SwelioLib name 'ReadAddressExA' delayed;
 {$ENDIF}
 
 function  ReadAddressExW(ReaderNumber : integer; address : PEidAddressW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadAddressExA(ReaderNumber : integer; address : PEidAddressA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadSISCard(Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardW';
+function  ReadSISCard(Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardW' delayed;
 {$ELSE}
-function  ReadSISCard(Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardA';
+function  ReadSISCard(Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardA' delayed;
 {$ENDIF}
 
 function  ReadSISCardW(Identity : PSISRecordW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadSISCardA(Identity : PSISRecordA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  ReadSISCardEx(ReaderNumber : integer; Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardExW';
+function  ReadSISCardEx(ReaderNumber : integer; Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardExW' delayed;
 {$ELSE}
-function  ReadSISCardEx(ReaderNumber : integer; Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardExA';
+function  ReadSISCardEx(ReaderNumber : integer; Identity : PSISRecord) : BOOL; stdcall; external SwelioLib name 'ReadSISCardExA' delayed;
 {$ENDIF}
 
 function  ReadSISCardExW(ReaderNumber : integer; Identity : PSISRecordW) : BOOL; stdcall; external SwelioLib delayed;
 function  ReadSISCardExA(ReaderNumber : integer; Identity : PSISRecordA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityW';
+procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityW' delayed;
 {$ELSE}
-procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityA';
+procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityA' delayed;
 {$ENDIF}
 
 procedure SaveIdentityW(FileName : PWideChar); stdcall; external SwelioLib delayed;
 procedure SaveIdentityA(FileName : PAnsiChar); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityW';
+procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityW' delayed;
 {$ELSE}
-procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityA';
+procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityA' delayed;
 {$ENDIF}
 
 procedure LoadIdentityW(FileName : PWideChar; identity : PEidIdentityW); stdcall; external SwelioLib delayed;
 procedure LoadIdentityA(FileName : PAnsiChar;  identity : PEidIdentityA); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure SaveAuthenticationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveAuthenticationCertificateW';
-procedure SaveNonRepudiationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveNonRepudiationCertificateW';
-procedure SaveCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveCaCertificateW';
-procedure SaveRootCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRootCaCertificateW';
-procedure SaveRrnCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRrnCertificateW';
+procedure SaveAuthenticationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveAuthenticationCertificateW' delayed;
+procedure SaveNonRepudiationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveNonRepudiationCertificateW' delayed;
+procedure SaveCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveCaCertificateW' delayed;
+procedure SaveRootCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRootCaCertificateW' delayed;
+procedure SaveRrnCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRrnCertificateW' delayed;
 {$ELSE}
-procedure SaveAuthenticationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveAuthenticationCertificateW';
-procedure SaveNonRepudiationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveNonRepudiationCertificateW';
-procedure SaveCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveCaCertificateW';
-procedure SaveRootCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRootCaCertificateW';
-procedure SaveRrnCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRrnCertificateW';
+procedure SaveAuthenticationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveAuthenticationCertificateW' delayed;
+procedure SaveNonRepudiationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveNonRepudiationCertificateW' delayed;
+procedure SaveCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveCaCertificateW' delayed;
+procedure SaveRootCaCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRootCaCertificateW' delayed;
+procedure SaveRrnCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveRrnCertificateW' delayed ;
 {$ENDIF}
 
 procedure SaveAuthenticationCertificateW(FileName : PWideChar); stdcall; external SwelioLib delayed;
@@ -4284,135 +4284,135 @@ function  GetEncodedCertificateSize(Certificate : PEidCertificate) : integer; st
 procedure DisplayCertificate(Certificate : PEidCertificate); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure LoadCertificate(FileName : PChar; Certificate : PEidCertificate); stdcall; external SwelioLib name 'LoadCertificateW';
+procedure LoadCertificate(FileName : PChar; Certificate : PEidCertificate); stdcall; external SwelioLib name 'LoadCertificateW' delayed;
 {$ELSE}
-procedure LoadCertificate(FileName : PChar; Certificate : PEidCertificate); stdcall; external SwelioLib name 'LoadCertificateA';
+procedure LoadCertificate(FileName : PChar; Certificate : PEidCertificate); stdcall; external SwelioLib name 'LoadCertificateA' delayed;
 {$ENDIF}
 
 procedure LoadCertificateW(FileName : PWideChar; Certificate : PEidCertificate); stdcall; external SwelioLib delayed;
 procedure LoadCertificateA(FileName : PAnsiChar; Certificate : PEidCertificate); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  VerifyPin(Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinW';
+function  VerifyPin(Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinW' delayed;
 {$ELSE}
-function  VerifyPin(Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinA';
+function  VerifyPin(Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinA' delayed;
 {$ENDIF}
 
 function  VerifyPinW(Value : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  VerifyPinA(Value : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  VerifyPinEx(ReaderNumber : integer; Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinExW';
+function  VerifyPinEx(ReaderNumber : integer; Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinExW' delayed;
 {$ELSE}
-function  VerifyPinEx(ReaderNumber : integer; Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinExA';
+function  VerifyPinEx(ReaderNumber : integer; Value : PChar) : BOOL; stdcall; external SwelioLib name 'VerifyPinExA' delayed;
 {$ENDIF}
 
 function  VerifyPinExW(ReaderNumber : integer; Value : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  VerifyPinExA(ReaderNumber : integer; Value : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePersonToCsv(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvW';
+function  SavePersonToCsv(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvW' delayed;
 {$ELSE}
-function  SavePersonToCsv(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvA';
+function  SavePersonToCsv(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvA' delayed;
 {$ENDIF}
 
 function  SavePersonToCsvW(FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SavePersonToCsvA(FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SavePersonToCsvEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvExW';
+function  SavePersonToCsvEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvExW' delayed;
 {$ELSE}
-function  SavePersonToCsvEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvExA';
+function  SavePersonToCsvEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SavePersonToCsvExA' delayed;
 {$ENDIF}
 
 function  SavePersonToCsvExW(ReaderNumber : integer; FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SavePersonToCsvExA(ReaderNumber : integer; FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SaveCardToXml(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlW';
+function  SaveCardToXml(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlW' delayed;
 {$ELSE}
-function  SaveCardToXml(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlA';
+function  SaveCardToXml(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlA' delayed;
 {$ENDIF}
 
 function  SaveCardToXmlW(FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SaveCardToXmlA(FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  SaveCardToXmlEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlExW';
+function  SaveCardToXmlEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlExW' delayed;
 {$ELSE}
-function  SaveCardToXmlEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlExA';
+function  SaveCardToXmlEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'SaveCardToXmlExA' delayed ;
 {$ENDIF}
 
 function  SaveCardToXmlExW(ReaderNumber : integer; FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  SaveCardToXmlExA(ReaderNumber : integer; FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateQRCode(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeW';
+function  GenerateQRCode(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeW' delayed;
 {$ELSE}
-function  GenerateQRCode(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeA';
+function  GenerateQRCode(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeA' delayed;
 {$ENDIF}
 
 function  GenerateQRCodeW(FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  GenerateQRCodeA(FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateQRCodeEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeExW';
+function  GenerateQRCodeEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeExW' delayed;
 {$ELSE}
-function  GenerateQRCodeEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeExA';
+function  GenerateQRCodeEx(ReaderNumber : integer; FileName : PChar) : BOOL; stdcall; external SwelioLib name 'GenerateQRCodeExA' delayed;
 {$ENDIF}
 
 function  GenerateQRCodeExW(ReaderNumber : integer; FileName : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function  GenerateQRCodeExA(ReaderNumber : integer; FileName : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  IsFemale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsFemaleW';
+function  IsFemale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsFemaleW' delayed;
 {$ELSE}
-function  IsFemale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsFemaleA';
+function  IsFemale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsFemaleA' delayed;
 {$ENDIF}
 
 function  IsFemaleW(Identity : PEidIdentityW) : BOOL; stdcall; external SwelioLib delayed;
 function  IsFemaleA(Identity : PEidIdentityA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  IsMale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsMaleW';
+function  IsMale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsMaleW' delayed;
 {$ELSE}
-function  IsMale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsMaleA';
+function  IsMale(Identity : PEidIdentity) : BOOL; stdcall; external SwelioLib name 'IsMaleA' delayed;
 {$ENDIF}
 
 function  IsMaleW(Identity : PEidIdentityW) : BOOL; stdcall; external SwelioLib delayed;
 function  IsMaleA(Identity : PEidIdentityA) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateAuthenticationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureW';
+function  GenerateAuthenticationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureW' delayed;
 {$ELSE}
-function  GenerateAuthenticationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureA';
+function  GenerateAuthenticationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureA' delayed;
 {$ENDIF}
 
 function  GenerateAuthenticationSignatureW(PinCode : PWideChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 function  GenerateAuthenticationSignatureA(PinCode : PAnsiChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateNonRepudiationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureW';
+function  GenerateNonRepudiationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureW' delayed;
 {$ELSE}
-function  GenerateNonRepudiationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureA';
+function  GenerateNonRepudiationSignature(PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureA' delayed;
 {$ENDIF}
 
 function  GenerateNonRepudiationSignatureW(PinCode : PWideChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 function  GenerateNonRepudiationSignatureA(PinCode : PAnsiChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateAuthenticationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureExW';
+function  GenerateAuthenticationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureExW' delayed;
 {$ELSE}
-function  GenerateAuthenticationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureExA';
+function  GenerateAuthenticationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateAuthenticationSignatureExA' delayed;
 {$ENDIF}
 
 function  GenerateAuthenticationSignatureExW(ReaderNumber : integer; PinCode : PWideChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 function  GenerateAuthenticationSignatureExA(ReaderNumber : integer; PinCode : PAnsiChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  GenerateNonRepudiationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureExW';
+function  GenerateNonRepudiationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureExW' delayed;
 {$ELSE}
-function  GenerateNonRepudiationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureExA';
+function  GenerateNonRepudiationSignatureEx(ReaderNumber : integer; PinCode : PChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib name 'GenerateNonRepudiationSignatureExA' delayed;
 {$ENDIF}
 
 function  GenerateNonRepudiationSignatureExA(ReaderNumber : integer; PinCode : PAnsiChar; DataHash : PBYTE; HashSize : integer; Signature : PBYTE; SignatureSize : LPDWORD) : BOOL; stdcall; external SwelioLib delayed;
@@ -4427,18 +4427,18 @@ procedure RemoveCallback(); stdcall; external SwelioLib delayed;
 procedure ReloadReadersList; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function GetFileSHA1(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileSHA1W';
+function GetFileSHA1(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileSHA1W' delayed;
 {$ELSE}
-function GetFileSHA1(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileSHA1A';
+function GetFileSHA1(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileSHA1A' delayed;
 {$ENDIF}
 
 function GetFileSHA1W(FileName : PWideChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib delayed;
 function GetFileSHA1A(FileName : PAnsiChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function GetFileMD5(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileMD5W';
+function GetFileMD5(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileMD5W' delayed;
 {$ELSE}
-function GetFileMD5(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileMD5A';
+function GetFileMD5(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileMD5A' delayed;
 {$ENDIF}
 
 function GetFileMD5W(FileName : PWideChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib delayed;
@@ -4451,99 +4451,99 @@ function CheckSHA1(Source : PBYTE; SourceSize : integer; Buffer : PBYTE; BufferS
 function CheckMD5(Source : PBYTE;  SourceSize : integer; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function EncryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'EncryptFileAESW';
+function EncryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'EncryptFileAESW' delayed;
 {$ELSE}
-function EncryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'EncryptFileAESA';
+function EncryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'EncryptFileAESA' delayed;
 {$ENDIF}
 
 function EncryptFileAESW(Source : PWideChar; Destination : PWideChar; Password : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function EncryptFileAESA(Source : PAnsiChar; Destination : PAnsiChar; Password : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function DecryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'DecryptFileAESW';
+function DecryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'DecryptFileAESW' delayed;
 {$ELSE}
-function DecryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'DecryptFileAESA';
+function DecryptFileAES(Source : PChar; Destination : PChar; Password : PChar) : BOOL; stdcall; external SwelioLib name 'DecryptFileAESA' delayed;
 {$ENDIF}
 
 function DecryptFileAESW(Source : PWideChar; Destination : PWideChar; Password : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function DecryptFileAESA(Source : PAnsiChar; Destination : PAnsiChar; Password : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function CardEncryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardEncryptFileW';
+function CardEncryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardEncryptFileW' delayed;
 {$ELSE}
-function CardEncryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardEncryptFileA';
+function CardEncryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardEncryptFileA' delayed;
 {$ENDIF}
 
 function CardEncryptFileW(Source : PWideChar; Destination : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function CardEncryptFileA(Source : PAnsiChar; Destination : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function CardDecryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardDecryptFileW';
+function CardDecryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardDecryptFileW' delayed;
 {$ELSE}
-function CardDecryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardDecryptFileA';
+function CardDecryptFile(Source : PChar; Destination : PChar) : BOOL; stdcall; external SwelioLib name 'CardDecryptFileA' delayed;
 {$ENDIF}
 
 function CardDecryptFileW(Source : PWideChar; Destination : PWideChar) : BOOL; stdcall; external SwelioLib delayed;
 function CardDecryptFileA(Source : PAnsiChar; Destination : PAnsiChar) : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure CreateUnicodeFile(const FileName : PChar); stdcall; external SwelioLib name 'CreateUnicodeFileW';
-function IsUnicodeFile(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsUnicodeFileW';
-procedure DeleteToRecycleBin(FileName : PChar; Silent : BOOL); stdcall; external SwelioLib name 'DeleteToRecycleBinW';
-procedure ShellCopyFile(oldName : PChar; NewName : PChar); stdcall; external SwelioLib name 'ShellCopyFileW';
-function FileGetSize(const FileName : PChar) : DWORD; stdcall; external SwelioLib name 'FileGetSizeW';
-function FileExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileExistsW';
-function FileExtensionIs(const FileName : PChar; Ext : PChar) : BOOL; stdcall; external SwelioLib name 'FileExtensionIsW';
-function FileIsImage(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsImageW';
-procedure FileDelete(FileName : PChar); stdcall; external SwelioLib name 'FileDeleteW';
-procedure ClearFileAttributes(FileName : PChar); stdcall; external SwelioLib name 'ClearFileAttributesW';
-function FileCreateRewrite(const FileName : PChar) : THandle; stdcall; external SwelioLib name 'FileCreateRewriteW';
-procedure FileClose(Handle : THandle); stdcall; external SwelioLib name 'FileCloseW';
-procedure FileWrite(handle : THandle; Text : PChar); stdcall; external SwelioLib name 'FileWriteW';
-procedure FileWriteChar(Handle : THandle; Text : WideChar); stdcall; external SwelioLib name 'FileWriteCharW';
-procedure FileWriteNewLine(Handle : THandle); stdcall; external SwelioLib name 'FileWriteNewLineW';
-function IsAnimatedGIF(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsAnimatedGIFW';
-function FileRename(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileRenameW';
-procedure StripFileName(const FileName : PChar; FullName : PChar); stdcall; external SwelioLib name 'StripFileNameW';
-function FileCopy(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileCopyW';
-function FullPath(FileName : PChar; FullName : PChar) : BOOL; stdcall; external SwelioLib name 'FullPathW';
-function FileOrFolderExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileOrFolderExistsW';
-function DirectoryExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'DirectoryExistsW';
-function IsDirectory(FolderName : PChar) : BOOL; stdcall; external SwelioLib name 'IsDirectoryW';
-function FileIsExe(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsExeW';
-function FileIsIcon(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsIconW';
-function IsValidFileName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidFileNameW';
-function IsValidPathName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidPathNameW';
-function GetFilesCount(FolderName : PChar) : integer; stdcall; external SwelioLib name 'GetFilesCountW';
+procedure CreateUnicodeFile(const FileName : PChar); stdcall; external SwelioLib name 'CreateUnicodeFileW' delayed;
+function IsUnicodeFile(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsUnicodeFileW' delayed;
+procedure DeleteToRecycleBin(FileName : PChar; Silent : BOOL); stdcall; external SwelioLib name 'DeleteToRecycleBinW' delayed;
+procedure ShellCopyFile(oldName : PChar; NewName : PChar); stdcall; external SwelioLib name 'ShellCopyFileW' delayed;
+function FileGetSize(const FileName : PChar) : DWORD; stdcall; external SwelioLib name 'FileGetSizeW' delayed;
+function FileExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileExistsW' delayed;
+function FileExtensionIs(const FileName : PChar; Ext : PChar) : BOOL; stdcall; external SwelioLib name 'FileExtensionIsW' delayed;
+function FileIsImage(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsImageW' delayed;
+procedure FileDelete(FileName : PChar); stdcall; external SwelioLib name 'FileDeleteW' delayed;
+procedure ClearFileAttributes(FileName : PChar); stdcall; external SwelioLib name 'ClearFileAttributesW' delayed;
+function FileCreateRewrite(const FileName : PChar) : THandle; stdcall; external SwelioLib name 'FileCreateRewriteW' delayed;
+procedure FileClose(Handle : THandle); stdcall; external SwelioLib name 'FileCloseW' delayed;
+procedure FileWrite(handle : THandle; Text : PChar); stdcall; external SwelioLib name 'FileWriteW' delayed;
+procedure FileWriteChar(Handle : THandle; Text : WideChar); stdcall; external SwelioLib name 'FileWriteCharW' delayed;
+procedure FileWriteNewLine(Handle : THandle); stdcall; external SwelioLib name 'FileWriteNewLineW' delayed;
+function IsAnimatedGIF(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsAnimatedGIFW' delayed;
+function FileRename(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileRenameW' delayed;
+procedure StripFileName(const FileName : PChar; FullName : PChar); stdcall; external SwelioLib name 'StripFileNameW' delayed;
+function FileCopy(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileCopyW' delayed;
+function FullPath(FileName : PChar; FullName : PChar) : BOOL; stdcall; external SwelioLib name 'FullPathW' delayed;
+function FileOrFolderExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileOrFolderExistsW' delayed;
+function DirectoryExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'DirectoryExistsW' delayed;
+function IsDirectory(FolderName : PChar) : BOOL; stdcall; external SwelioLib name 'IsDirectoryW' delayed;
+function FileIsExe(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsExeW' delayed;
+function FileIsIcon(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsIconW' delayed;
+function IsValidFileName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidFileNameW' delayed;
+function IsValidPathName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidPathNameW' delayed;
+function GetFilesCount(FolderName : PChar) : integer; stdcall; external SwelioLib name 'GetFilesCountW' delayed;
 {$ELSE}
-procedure CreateUnicodeFile(const FileName : PChar); stdcall; external SwelioLib name 'CreateUnicodeFileA';
-function IsUnicodeFile(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsUnicodeFileA';
-procedure DeleteToRecycleBin(FileName : PChar; Silent : BOOL); stdcall; external SwelioLib name 'DeleteToRecycleBinA';
-procedure ShellCopyFile(oldName : PChar; NewName : PChar); stdcall; external SwelioLib name 'ShellCopyFileA';
-function FileGetSize(const FileName : PChar) : DWORD; stdcall; external SwelioLib name 'FileGetSizeA';
-function FileExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileExistsA';
-function FileExtensionIs(const FileName : PChar; Ext : PChar) : BOOL; stdcall; external SwelioLib name 'FileExtensionIsA';
-function FileIsImage(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsImageA';
-procedure FileDelete(FileName : PChar); stdcall; external SwelioLib name 'FileDeleteA';
-procedure ClearFileAttributes(FileName : PChar); stdcall; external SwelioLib name 'ClearFileAttributesA';
-function FileCreateRewrite(const FileName : PChar) : THandle; stdcall; external SwelioLib name 'FileCreateRewriteA';
-procedure FileClose(Handle : THandle); stdcall; external SwelioLib name 'FileCloseA';
-procedure FileWrite(handle : THandle; Text : PChar); stdcall; external SwelioLib name 'FileWriteA';
-procedure FileWriteChar(Handle : THandle; Text : WideChar); stdcall; external SwelioLib name 'FileWriteCharA';
-procedure FileWriteNewLine(Handle : THandle); stdcall; external SwelioLib name 'FileWriteNewLineA';
-function IsAnimatedGIF(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsAnimatedGIFA';
-function FileRename(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileRenameA';
-procedure StripFileName(const FileName : PChar; FullName : PChar); stdcall; external SwelioLib name 'StripFileNameA';
-function FileCopy(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileCopyA';
-function FullPath(FileName : PChar; FullName : PChar) : BOOL; stdcall; external SwelioLib name 'FullPathA';
-function FileOrFolderExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileOrFolderExistsA';
-function DirectoryExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'DirectoryExistsA';
-function IsDirectory(FolderName : PChar) : BOOL; stdcall; external SwelioLib name 'IsDirectoryA';
-function FileIsExe(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsExeA';
-function FileIsIcon(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsIconA';
-function IsValidFileName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidFileNameA';
-function IsValidPathName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidPathNameA';
-function GetFilesCount(FolderName : PChar) : integer; stdcall; external SwelioLib name 'GetFilesCountA';
+procedure CreateUnicodeFile(const FileName : PChar); stdcall; external SwelioLib name 'CreateUnicodeFileA' delayed;
+function IsUnicodeFile(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsUnicodeFileA' delayed;
+procedure DeleteToRecycleBin(FileName : PChar; Silent : BOOL); stdcall; external SwelioLib name 'DeleteToRecycleBinA' delayed;
+procedure ShellCopyFile(oldName : PChar; NewName : PChar); stdcall; external SwelioLib name 'ShellCopyFileA' delayed;
+function FileGetSize(const FileName : PChar) : DWORD; stdcall; external SwelioLib name 'FileGetSizeA' delayed;
+function FileExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileExistsA' delayed;
+function FileExtensionIs(const FileName : PChar; Ext : PChar) : BOOL; stdcall; external SwelioLib name 'FileExtensionIsA' delayed;
+function FileIsImage(const FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsImageA' delayed;
+procedure FileDelete(FileName : PChar); stdcall; external SwelioLib name 'FileDeleteA' delayed;
+procedure ClearFileAttributes(FileName : PChar); stdcall; external SwelioLib name 'ClearFileAttributesA' delayed;
+function FileCreateRewrite(const FileName : PChar) : THandle; stdcall; external SwelioLib name 'FileCreateRewriteA' delayed;
+procedure FileClose(Handle : THandle); stdcall; external SwelioLib name 'FileCloseA' delayed;
+procedure FileWrite(handle : THandle; Text : PChar); stdcall; external SwelioLib name 'FileWriteA' delayed;
+procedure FileWriteChar(Handle : THandle; Text : WideChar); stdcall; external SwelioLib name 'FileWriteCharA' delayed;
+procedure FileWriteNewLine(Handle : THandle); stdcall; external SwelioLib name 'FileWriteNewLineA' delayed;
+function IsAnimatedGIF(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsAnimatedGIFA' delayed;
+function FileRename(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileRenameA' delayed;
+procedure StripFileName(const FileName : PChar; FullName : PChar); stdcall; external SwelioLib name 'StripFileNameA' delayed;
+function FileCopy(OldName : PChar; NewName : PChar) : BOOL; stdcall; external SwelioLib name 'FileCopyA' delayed;
+function FullPath(FileName : PChar; FullName : PChar) : BOOL; stdcall; external SwelioLib name 'FullPathA' delayed;
+function FileOrFolderExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileOrFolderExistsA' delayed;
+function DirectoryExists(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'DirectoryExistsA' delayed;
+function IsDirectory(FolderName : PChar) : BOOL; stdcall; external SwelioLib name 'IsDirectoryA' delayed;
+function FileIsExe(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsExeA' delayed;
+function FileIsIcon(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'FileIsIconA' delayed;
+function IsValidFileName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidFileNameA' delayed;
+function IsValidPathName(FileName : PChar) : BOOL; stdcall; external SwelioLib name 'IsValidPathNameA' delayed;
+function GetFilesCount(FolderName : PChar) : integer; stdcall; external SwelioLib name 'GetFilesCountA' delayed;
 {$ENDIF}
 
 procedure CreateUnicodeFileW(const FileName : PWideChar); stdcall; external SwelioLib delayed;
@@ -4606,18 +4606,18 @@ function IsValidPathNameA(FileName : PAnsiChar) : BOOL; stdcall; external Swelio
 function GetFilesCountA(FolderName : PAnsiChar) : integer; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure WriteBufferToFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'WriteBufferToFileW';
+procedure WriteBufferToFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'WriteBufferToFileW' delayed;
 {$ELSE}
-procedure WriteBufferToFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'WriteBufferToFileA';
+procedure WriteBufferToFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'WriteBufferToFileA' delayed;
 {$ENDIF}
 
 procedure WriteBufferToFileW(FileName : PWideChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib delayed;
 procedure WriteBufferToFileA(FileName : PAnsiChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure ReadBufferFromFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'ReadBufferFromFileW';
+procedure ReadBufferFromFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'ReadBufferFromFileW' delayed;
 {$ELSE}
-procedure ReadBufferFromFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'ReadBufferFromFileA';
+procedure ReadBufferFromFile(FileName : PChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib name 'ReadBufferFromFileA' delayed;
 {$ENDIF}
 
 procedure ReadBufferFromFileW(FileName : PWideChar; Buffer : PBYTE; BufferSize : integer); stdcall; external SwelioLib delayed;
@@ -4627,9 +4627,9 @@ function AllocateBuffer(BufferSize : integer) : Pointer; stdcall; external Sweli
 procedure DeallocateBuffer(Buffer : Pointer); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function GetISOCode(Nationality : PChar; IsoCode : PChar; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetISOCodeW';
+function GetISOCode(Nationality : PChar; IsoCode : PChar; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetISOCodeW' delayed;
 {$ELSE}
-function GetISOCode(Nationality : PChar; IsoCode : PChar; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetISOCodeA';
+function GetISOCode(Nationality : PChar; IsoCode : PChar; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetISOCodeA' delayed;
 {$ENDIF}
 
 function GetISOCodeW(Nationality : PWideChar; IsoCode : PWideChar; BufferSize : integer) : BOOL; stdcall; external SwelioLib delayed;
@@ -4649,31 +4649,31 @@ procedure AddRemoveMessageFilter(Message : UINT; dwFlags : DWORD); stdcall; exte
 procedure DrawLayeredWindow(WindowHndle : THandle; Left : integer; Top : integer; Width : integer; Height : integer; buffer : HDC; ColorKey : COLORREF; Alpha : byte; redrawOnly : BOOL); stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-function  AllocateDefaultHWND() : THandle; stdcall; external SwelioLib name 'AllocateDefaultHWNDW';
-function  LayeredWndProc(hWnd : THandle; Message : UINT; wParam : WPARAM;  lParam : LPARAM) : LRESULT; stdcall; external SwelioLib name 'LayeredWndProcW';
-function  GetStartup(const AppName : PChar) : BOOL; stdcall; external SwelioLib name 'GetStartupW';
-procedure SetStartup(const AppName : PChar; const AppPath : PChar); stdcall; external SwelioLib name 'SetStartupW';
-procedure RemoveStartup(const AppName : PChar); stdcall; external SwelioLib name 'RemoveStartupW';
-function  AllocateWindowClass(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateWindowClassW';
-function  AllocateLayeredWindow(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateLayeredWindowW';
-procedure MakeSoundFromFile(const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromFileW';
-procedure MakeSoundFromResource(ModuleHandle : THandle; const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromResourceW';
-function  AllocateHWND(WndFunc : TFNWndProc) : THandle; stdcall; external SwelioLib name 'AllocateHWNDW';
-function  DeallocateHWND(Hwnd : THandle) : BOOL; stdcall; external SwelioLib name 'DeallocateHWNDW';
-procedure RestoreWindowSubclass(Hwnd : THandle); stdcall; external SwelioLib name 'RestoreWindowSubclassW';
+function  AllocateDefaultHWND() : THandle; stdcall; external SwelioLib name 'AllocateDefaultHWNDW' delayed;
+function  LayeredWndProc(hWnd : THandle; Message : UINT; wParam : WPARAM;  lParam : LPARAM) : LRESULT; stdcall; external SwelioLib name 'LayeredWndProcW' delayed;
+function  GetStartup(const AppName : PChar) : BOOL; stdcall; external SwelioLib name 'GetStartupW' delayed;
+procedure SetStartup(const AppName : PChar; const AppPath : PChar); stdcall; external SwelioLib name 'SetStartupW' delayed;
+procedure RemoveStartup(const AppName : PChar); stdcall; external SwelioLib name 'RemoveStartupW' delayed;
+function  AllocateWindowClass(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateWindowClassW' delayed;
+function  AllocateLayeredWindow(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateLayeredWindowW' delayed;
+procedure MakeSoundFromFile(const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromFileW' delayed;
+procedure MakeSoundFromResource(ModuleHandle : THandle; const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromResourceW' delayed;
+function  AllocateHWND(WndFunc : TFNWndProc) : THandle; stdcall; external SwelioLib name 'AllocateHWNDW' delayed;
+function  DeallocateHWND(Hwnd : THandle) : BOOL; stdcall; external SwelioLib name 'DeallocateHWNDW' delayed;
+procedure RestoreWindowSubclass(Hwnd : THandle); stdcall; external SwelioLib name 'RestoreWindowSubclassW' delayed;
 {$ELSE}
-function  AllocateDefaultHWND() : THandle; stdcall; external SwelioLib name 'AllocateDefaultHWNDA';
-function  LayeredWndProc(hWnd : THandle; Message : UINT; wParam : WPARAM;  lParam : LPARAM) : LRESULT; stdcall; external SwelioLib name 'LayeredWndProcA';
-function  GetStartup(const AppName : PChar) : BOOL; stdcall; external SwelioLib name 'GetStartupA';
-procedure SetStartup(const AppName : PChar; const AppPath : PChar); stdcall; external SwelioLib name 'SetStartupA';
-procedure RemoveStartup(const AppName : PChar); stdcall; external SwelioLib name 'RemoveStartupA';
-function  AllocateWindowClass(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateWindowClassA';
-function  AllocateLayeredWindow(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateLayeredWindowA';
-procedure MakeSoundFromFile(const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromFileA';
-procedure MakeSoundFromResource(ModuleHandle : THandle; const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromResourceA';
-function  AllocateHWND(WndFunc : TFNWndProc) : THandle; stdcall; external SwelioLib name 'AllocateHWNDA';
-function  DeallocateHWND(Hwnd : THandle) : BOOL; stdcall; external SwelioLib name 'DeallocateHWNDA';
-procedure RestoreWindowSubclass(Hwnd : THandle); stdcall; external SwelioLib name 'RestoreWindowSubclassA';
+function  AllocateDefaultHWND() : THandle; stdcall; external SwelioLib name 'AllocateDefaultHWNDA' delayed;
+function  LayeredWndProc(hWnd : THandle; Message : UINT; wParam : WPARAM;  lParam : LPARAM) : LRESULT; stdcall; external SwelioLib name 'LayeredWndProcA' delayed;
+function  GetStartup(const AppName : PChar) : BOOL; stdcall; external SwelioLib name 'GetStartupA' delayed;
+procedure SetStartup(const AppName : PChar; const AppPath : PChar); stdcall; external SwelioLib name 'SetStartupA' delayed;
+procedure RemoveStartup(const AppName : PChar); stdcall; external SwelioLib name 'RemoveStartupA' delayed;
+function  AllocateWindowClass(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateWindowClassA' delayed;
+function  AllocateLayeredWindow(const ClassName : PChar) : THandle; stdcall; external SwelioLib name 'AllocateLayeredWindowA' delayed;
+procedure MakeSoundFromFile(const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromFileA' delayed;
+procedure MakeSoundFromResource(ModuleHandle : THandle; const SoundName : PChar); stdcall; external SwelioLib name 'MakeSoundFromResourceA' delayed;
+function  AllocateHWND(WndFunc : TFNWndProc) : THandle; stdcall; external SwelioLib name 'AllocateHWNDA' delayed;
+function  DeallocateHWND(Hwnd : THandle) : BOOL; stdcall; external SwelioLib name 'DeallocateHWNDA' delayed;
+procedure RestoreWindowSubclass(Hwnd : THandle); stdcall; external SwelioLib name 'RestoreWindowSubclassA' delayed;
 {$ENDIF}
 
 function  AllocateDefaultHWNDW() : THandle; stdcall; external SwelioLib delayed;
@@ -4739,9 +4739,9 @@ function IsWow64() : BOOL; stdcall; external SwelioLib delayed;
 function IsNativeWin64() : BOOL; stdcall; external SwelioLib delayed;
 
 {$IFDEF UNICODE}
-procedure CurrentIPAddress(Address : PChar; Len : UINT); stdcall; external SwelioLib name 'CurrentIPAddressW';
+procedure CurrentIPAddress(Address : PChar; Len : UINT); stdcall; external SwelioLib name 'CurrentIPAddressW' delayed;
 {$ELSE}
-procedure CurrentIPAddress(Address : PChar; Len : UINT); stdcall; external SwelioLib name 'CurrentIPAddressA';
+procedure CurrentIPAddress(Address : PChar; Len : UINT); stdcall; external SwelioLib name 'CurrentIPAddressA' delayed;
 {$ENDIF}
 
 procedure CurrentIPAddressW(Address : PWideChar; Len : UINT); stdcall; external SwelioLib delayed;
