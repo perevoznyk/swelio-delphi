@@ -3946,6 +3946,20 @@ function CardSignCadesTEx(readerNumber : integer; data : PBYTE; dataLen : intege
 //		Returns true if the operation is successful, otherwise returns false
 function CertSignCMS(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
 
+// Summary:
+//		Sign data with certificate according to CMS standard
+// Description:
+//		Create CMS signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate : the name of the certificate file
+//    password : password of the certificate file
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//    error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 function CertSignCMSEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error: PErrorInformation) : BOOL; stdcall;
 
 // Summary:
@@ -3963,7 +3977,25 @@ function CertSignCMSEx(certificate : PWideChar; password : PWideChar; data : PBY
 //		Returns true if the operation is successful, otherwise returns false
 function CertSignCadesT(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword) : BOOL; stdcall;
 
+// Summary:
+//		Sign data with certificate according to CADES-T standard
+// Description:
+//		Create CADES-T signature for data buffer. Can be used for digital signature of PDF documents in combination with external PDF library
+// Arguments:
+//		certificate : the name of the certificate file
+//    password : password of the certificate file
+//		data - the data to sign
+//		dataLen - the size of the data buffer
+//		signature - the signature buffer
+//		signatureLen - the size of the signature buffer
+//    error - error information
+// Return value:
+//		Returns true if the operation is successful, otherwise returns false
 function CertSignCadesTEx(certificate : PWideChar; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall;
+
+function CertSignCadesTData(certificate : PBYTE; certLen : DWORD; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall;
+
+function CertSignCMSData(certificate : PBYTE; certLen : DWORD; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall;
 
 function InitializeContainer() : pointer; stdcall;
 
@@ -3978,6 +4010,7 @@ function ContainerCertificate(Container: pointer; fileName: PWideChar; password 
 function ContainerPickCertificate(Container: pointer) : BOOL; stdcall;
 
 function ContainerEidCertificate(Container: pointer; readerNumber : integer) : BOOL; stdcall;
+
 
 implementation
 
@@ -4438,6 +4471,10 @@ procedure SetCallback(callback : TReaderCallback; userContext : Pointer); stdcal
 procedure RemoveCallback(); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 
 procedure ReloadReadersList; stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+
+function CertSignCadesTData(certificate : PBYTE; certLen : DWORD; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+
+function CertSignCMSData(certificate : PBYTE; certLen : DWORD; password : PWideChar; data : PBYTE; dataLen : integer; signature : PBYTE; var signatureLen : longword; error : PErrorInformation) : BOOL; stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 
 {$IFDEF UNICODE}
 function GetFileSHA1(FileName : PChar; Buffer : PBYTE; BufferSize : integer) : BOOL; stdcall; external SwelioLib name 'GetFileSHA1W' {$IFDEF MODERN}delayed{$ENDIF};
