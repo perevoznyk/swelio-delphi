@@ -44,6 +44,8 @@ type
   public
     { Public declarations }
     procedure LoadUnknownImage;
+    procedure ReadIDCard;
+    procedure ClearIDData;
   end;
 
 var
@@ -62,11 +64,13 @@ begin
               frmMain.Events.Items.Add(DateTimeToStr(Now) + ' card inserted');
               ActivateCardEx(ReaderNumber);
               frmMain.btnReadCard.Enabled := true;
+              frmMain.ReadIDCard;
             end;
         2 : begin
               frmMain.Events.Items.Add(DateTimeToStr(Now) + ' card removed');
               DeactivateCardEx(ReaderNumber);
               frmMain.btnReadCard.Enabled := false;
+              frmMain.ClearIDData;
             end;
         3:  begin
               frmMain.Events.Items.Add(DateTimeToStr(Now) + ' readers list changed');
@@ -83,10 +87,64 @@ begin
 end;
 
 procedure TfrmMain.btnReadCardClick(Sender: TObject);
+begin
+  ReadIDCard;
+end;
+
+procedure TfrmMain.btnSaveLogClick(Sender: TObject);
+begin
+  if (dlgSave.Execute) then
+   begin
+     Events.Items.SaveToFile(dlgSave.FileName);
+   end;
+end;
+
+procedure TfrmMain.ClearIDData;
+begin
+  edtlastName.Text  := '';
+  edtFirstName.Text := '';
+  edtBirthDate.Text := '';
+  edtBirthPlace.Text := '';
+  edtNationalNumber.Text :=  '';
+  edtSex.Text := '';
+  edtNationality.Text := '';
+  edtMunicipality.Text := '';
+
+  edtStreet.Text := '';
+  edtHouseNumber.Text := '';
+  edtZip.Text := '';
+  edtCity.Text := '';
+
+  edtCardNumber.Text := '';
+  edtFrom.Text := '';
+  edtUntil.Text := '';
+  edtType.Text := '';
+  edtChipNumber.Text := '';
+
+  LoadUnknownImage;
+end;
+
+procedure TfrmMain.LoadUnknownImage;
+var
+  B : TBitmap;
+begin
+   B := TBitmap.Create;
+    try
+      B.Width  := 114;
+      B.Height := 114;
+      B.Canvas.Brush.Color := Self.Color;
+      B.Canvas.FillRect(B.Canvas.ClipRect);
+      imgPerson.Stretch := false;
+      imgPerson.Picture.Bitmap.Assign(B);
+    finally
+      B.Free;
+    end;
+end;
+
+procedure TfrmMain.ReadIDCard;
 var
   Identity : TEIDIdentity;
   Address : TEIDAddress;
-  SisData : TSisRecord;
   Pic : TEIDPicture;
   MS : TMemoryStream;
   Img : TJPEGImage;
@@ -115,26 +173,12 @@ begin
 
   if not IsEIDCard then
    begin
-     if not IsSISCard then
-       begin
-         ShowMessage('Belgian EID card is not detected in the reader');
-         Exit;
-       end;
+     ShowMessage('Belgian EID card is not detected in the reader');
+     Exit;
    end;
 
   FillChar(Identity, sizeof(TEIDIdentity), 0);
-  FillChar(SisData, sizeof(TSisRecord), 0);
 
-  if IsSISCard then
-    begin
-      if ReadSISCard(@SisData) then
-         begin
-          edtlastName.Text := SisData.Name;
-          edtFirstName.Text := SisData.FirstName;
-          edtBirthDate.Text := FormatEIDDate(SisData.BirthDate);
-         end;
-      Exit;
-    end;
 
   if ReadIdentity(@Identity) then
    begin
@@ -199,31 +243,6 @@ begin
        MS.Free;
     end;
 
-end;
-
-procedure TfrmMain.btnSaveLogClick(Sender: TObject);
-begin
-  if (dlgSave.Execute) then
-   begin
-     Events.Items.SaveToFile(dlgSave.FileName);
-   end;
-end;
-
-procedure TfrmMain.LoadUnknownImage;
-var
-  B : TBitmap;
-begin
-   B := TBitmap.Create;
-    try
-      B.Width  := 114;
-      B.Height := 114;
-      B.Canvas.Brush.Color := Self.Color;
-      B.Canvas.FillRect(B.Canvas.ClipRect);
-      imgPerson.Stretch := false;
-      imgPerson.Picture.Bitmap.Assign(B);
-    finally
-      B.Free;
-    end;
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);

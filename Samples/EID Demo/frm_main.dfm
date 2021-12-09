@@ -282,7 +282,7 @@ object frmMain: TfrmMain
     end
   end
   object btnReadCard: TButton
-    Left = 516
+    Left = 519
     Top = 609
     Width = 75
     Height = 25

@@ -3,7 +3,7 @@ program DemoReader;
 uses
   Forms,
   frm_main in 'frm_main.pas' {frmMain},
-  SwelioEngine in '..\..\..\Binding\Delphi\SwelioEngine.pas';
+  SwelioEngine;
 
 {$R *.RES}
 
