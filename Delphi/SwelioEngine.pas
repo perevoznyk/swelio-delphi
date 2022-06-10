@@ -4843,10 +4843,23 @@ begin
   14: Result := 'Foreigner card type D';
   15: Result := 'Foreigner card type E';
   16: Result := 'Foreigner card type E+';
-  17: Result := 'Foreigner card type F+';
+  17: Result := 'Foreigner card type F';
   18: Result := 'Foreigner card type F+';
+  19: Result := 'Card type H';
+  20: Result := 'Card type I';
+  21: Result := 'Card type J';
+  22: Result := 'Card type M';
+  23: Result := 'Card type N';
+  27: Result := 'Card type K';
+  28: Result := 'Card type L';
+  31: Result := 'EU card';
+  32: Result := 'EU+ card';
+  33: Result := 'Card type A';
+  34: Result := 'Card type B';
+  35: Result := 'Card type F';
+  36: Result := 'Card type F+';
    else
-     Result := 'Unknown card';
+     Result := 'Unknown card type N ' + IntToStr(AType);
   end;
 end;
 
