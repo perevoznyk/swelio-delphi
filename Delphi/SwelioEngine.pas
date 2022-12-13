@@ -1175,7 +1175,7 @@ procedure SaveIdentityA(FileName : PAnsiChar); stdcall;
 // Description:
 //     Use this function to read back the identity information stored to the file using SaveIdentityW function
 // Arguments:
-//     fileName - The name of the source file 
+//     fileName - The name of the source file
 //     identity - The pointer to EidIdentityW structure
 procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall;
 
@@ -1184,7 +1184,7 @@ procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall;
 // Description:
 //     Use this function to read back the identity information stored to the file using SaveIdentityW function
 // Arguments:
-//     fileName - The name of the source file 
+//     fileName - The name of the source file
 //     identity - The pointer to EidIdentityW structure
 procedure LoadIdentityA(FileName : PAnsiChar;  identity : PEidIdentityA); stdcall;
 
@@ -1193,9 +1193,16 @@ procedure LoadIdentityA(FileName : PAnsiChar;  identity : PEidIdentityA); stdcal
 // Description:
 //     Use this function to read back the identity information stored to the file using SaveIdentityW function
 // Arguments:
-//     fileName - The name of the source file 
+//     fileName - The name of the source file
 //     identity - The pointer to EidIdentityW structure
 procedure LoadIdentityW(FileName : PWideChar; identity : PEidIdentityW); stdcall;
+
+procedure SaveAddress(FileName : PChar); stdcall;
+procedure SaveAddressA(FileName : PAnsiChar); stdcall;
+procedure SaveAddressW(FileName : PWideChar); stdcall;
+procedure LoadAddress(FileName : PChar;  Address : PEidAddress); stdcall;
+procedure LoadAddressA(FileName : PAnsiChar;  Address : PEidAddressA); stdcall;
+procedure LoadAddressW(FileName : PWideChar; Address : PEidAddressW); stdcall;
 
 // Summary:
 //      Save Authentication Certificate to a file
@@ -4276,6 +4283,13 @@ function  ReadSISCardExW(ReaderNumber : integer; Identity : PSISRecordW) : BOOL;
 function  ReadSISCardExA(ReaderNumber : integer; Identity : PSISRecordA) : BOOL; stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 
 {$IFDEF UNICODE}
+procedure SaveAddress(FileName : PChar); stdcall; external SwelioLib name 'SaveAddressW' {$IFDEF MODERN}delayed{$ENDIF};
+{$ELSE}
+procedure SaveAddress(FileName : PChar); stdcall; external SwelioLib name 'SaveAddressA' {$IFDEF MODERN}delayed{$ENDIF};
+{$ENDIF}
+
+
+{$IFDEF UNICODE}
 procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityW' {$IFDEF MODERN}delayed{$ENDIF};
 {$ELSE}
 procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'SaveIdentityA' {$IFDEF MODERN}delayed{$ENDIF};
@@ -4284,14 +4298,26 @@ procedure SaveIdentity(FileName : PChar); stdcall; external SwelioLib name 'Save
 procedure SaveIdentityW(FileName : PWideChar); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 procedure SaveIdentityA(FileName : PAnsiChar); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 
+procedure SaveAddressW(FileName : PWideChar); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+procedure SaveAddressA(FileName : PAnsiChar); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+
 {$IFDEF UNICODE}
 procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityW' {$IFDEF MODERN}delayed{$ENDIF};
 {$ELSE}
 procedure LoadIdentity(FileName : PChar;  identity : PEidIdentity); stdcall; external SwelioLib name 'LoadIdentityA' {$IFDEF MODERN}delayed{$ENDIF};
 {$ENDIF}
 
+{$IFDEF UNICODE}
+procedure LoadAddress(FileName : PChar;  address : PEidAddress); stdcall; external SwelioLib name 'LoadAddressW' {$IFDEF MODERN}delayed{$ENDIF};
+{$ELSE}
+procedure LoadAddress(FileName : PChar;  address : PEidAddress); stdcall; external SwelioLib name 'LoadAddressA' {$IFDEF MODERN}delayed{$ENDIF};
+{$ENDIF}
+
 procedure LoadIdentityW(FileName : PWideChar; identity : PEidIdentityW); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 procedure LoadIdentityA(FileName : PAnsiChar;  identity : PEidIdentityA); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+
+procedure LoadAddressW(FileName : PWideChar; address : PEidAddressW); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
+procedure LoadAddressA(FileName : PAnsiChar;  address : PEidAddressA); stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
 
 {$IFDEF UNICODE}
 procedure SaveAuthenticationCertificate(FileName : PChar); stdcall; external SwelioLib name 'SaveAuthenticationCertificateW' {$IFDEF MODERN}delayed{$ENDIF};
