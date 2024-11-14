@@ -4018,6 +4018,9 @@ function ContainerPickCertificate(Container: pointer) : BOOL; stdcall;
 
 function ContainerEidCertificate(Container: pointer; readerNumber : integer) : BOOL; stdcall;
 
+procedure IgnoreHardwareEvents(value : BOOL); stdcall;
+
+procedure IgnoreServiceEvents(value : BOOL); stdcall;
 
 implementation
 
@@ -4039,6 +4042,7 @@ const
 
 {$IFNDEF CLASSIC}
    {$DEFINE MODERN}
+   {$WARN SYMBOL_PLATFORM OFF}
 {$ENDIF}
 
 function GetCardSerialNumber(readerNumber : integer; serialNumber :PBYTE; var serialNumberSize : DWORD) : BOOL; stdcall; external SwelioLib {$IFDEF MODERN}delayed{$ENDIF};
@@ -4112,6 +4116,9 @@ function  IsEngineActive() : BOOL; stdcall; external SwelioLib {$IFDEF MODERN}de
 function  GetReadersCount() : integer; stdcall; external SwelioLib name 'GetReadersCount' {$IFDEF MODERN}delayed{$ENDIF};
 function  SelectReader(ReaderNumber : integer) : BOOL; stdcall; external SwelioLib name 'SelectReader' {$IFDEF MODERN}delayed{$ENDIF};
 function  GetSelectedReaderIndex() : integer; stdcall; external SwelioLib name 'GetSelectedReaderIndex' {$IFDEF MODERN}delayed{$ENDIF};
+
+procedure IgnoreHardwareEvents(value : BOOL); stdcall; external SwelioLib name 'IgnoreHardwareEvents' {$IFDEF MODERN}delayed{$ENDIF};
+procedure IgnoreServiceEvents(value : BOOL); stdcall; external SwelioLib name 'IgnoreServiceEvents' {$IFDEF MODERN}delayed{$ENDIF};
 
 {$IFDEF UNICODE}
 function  SelectReaderByName(ReaderName : PChar) : BOOL; stdcall; external SwelioLib name 'SelectReaderByNameW' {$IFDEF MODERN}delayed{$ENDIF};
