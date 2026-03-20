@@ -5,12 +5,12 @@ program ASICContainerDemo;
 {$R *.res}
 
 uses
-  System.SysUtils,
-  AsicContainer in '..\..\..\Delphi\AsicContainer.pas',
-  EidFormatter in '..\..\..\Delphi\EidFormatter.pas',
-  EidReader in '..\..\..\Delphi\EidReader.pas',
-  SwelioEngine in '..\..\..\Delphi\SwelioEngine.pas',
-  SwelioTypes in '..\..\..\Delphi\SwelioTypes.pas';
+  SysUtils,
+  AsicContainer in '..\..\Delphi\AsicContainer.pas',
+  EidFormatter in '..\..\Delphi\EidFormatter.pas',
+  EidReader in '..\..\Delphi\EidReader.pas',
+  SwelioEngine in '..\..\Delphi\SwelioEngine.pas',
+  SwelioTypes in '..\..\Delphi\SwelioTypes.pas';
 
 var
  ctx : TAsicContainer;
